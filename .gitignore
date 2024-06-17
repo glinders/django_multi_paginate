@@ -1,0 +1,10 @@
+# PyCharm project files
+.idea
+# our virtual environment
+.venv
+# migrations
+mpag/migrations/00*.py
+# Python cache files
+__pycache__/
+# don't need database
+db.sqlite3

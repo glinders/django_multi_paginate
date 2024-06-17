@@ -5,7 +5,51 @@
       <div class="article-metadata">
         <small class="text-muted">sub header</small>
       </div>
-      <p class="article-content">xxx{{ object.content }}xxx</p>
+      <p class="article-content">{{ object.room_content }}</p>
+      <div>
+        <table style="width:auto">
+        {% for note in notes %}
+        <tr>
+          <td>{{ note.note_content }}</td>
+        </tr>
+        {% empty %}
+        There are no notes
+        {% endfor %}
+        </table><br>
+       <span class="step-links pagination">
+          {% if notes.has_previous %}
+              <a href="?page1={{ notes.previous_page_number }}"> previous </a>
+          {% endif %}
+          <span class="current">
+              Page {{ notes.number }} of {{ notes.paginator.num_pages }}
+          </span>
+          {% if notes.has_next %}
+              <a href="?page1={{ notes.next_page_number }}"> next </a>
+          {% endif %}
+      </span>
+     </div><br>
+      <div>
+        <table style="width:auto">
+        {% for book in books %}
+        <tr>
+          <td>{{ book.book_content }}</td>
+        </tr>
+        {% empty %}
+        There are no books
+        {% endfor %}
+        </table><br>
+       <span class="step-links pagination">
+          {% if books.has_previous %}
+              <a href="?page2={{ books.previous_page_number }}"> previous </a>
+          {% endif %}
+          <span class="current">
+              Page {{ books.number }} of {{ books.paginator.num_pages }}
+          </span>
+          {% if books.has_next %}
+              <a href="?page2={{ books.next_page_number }}"> next </a>
+          {% endif %}
+      </span>
+      </div><br>
     </div>
   </article>
 {% endblock content %}

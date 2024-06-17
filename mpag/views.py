@@ -28,7 +28,7 @@ class MpagDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         # create paginator for notes
         all_notes = Note.objects.all()
-        paginator = Paginator(all_notes, 6)
+        paginator = Paginator(all_notes, 4)
         page = self.request.GET.get('page1')
         try:
             all_notes = paginator.page(page)
@@ -38,7 +38,7 @@ class MpagDetailView(DetailView):
             all_notes = paginator.page(paginator.num_pages)
         # create paginator for books
         all_books = Book.objects.all()
-        paginator = Paginator(all_books, 6)
+        paginator = Paginator(all_books, 3)
         page = self.request.GET.get('page2')
         try:
             all_books = paginator.page(page)

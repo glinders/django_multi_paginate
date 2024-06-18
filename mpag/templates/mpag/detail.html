@@ -18,13 +18,13 @@
         </table><br>
        <span class="step-links pagination">
           {% if notes.has_previous %}
-              <a href="?page1={{ notes.previous_page_number }}"> previous </a>
+              <a href="?page1={{ notes.previous_page_number }}&page2={{ notes.current_page_number}}"> previous </a>
           {% endif %}
           <span class="current">
               Page {{ notes.number }} of {{ notes.paginator.num_pages }}
           </span>
           {% if notes.has_next %}
-              <a href="?page1={{ notes.next_page_number }}"> next </a>
+              <a href="?page1={{ notes.next_page_number }}&page2={{ notes.current_page_number}}"> next </a>
           {% endif %}
       </span>
      </div><br>
@@ -40,13 +40,13 @@
         </table><br>
        <span class="step-links pagination">
           {% if books.has_previous %}
-              <a href="?page2={{ books.previous_page_number }}"> previous </a>
+              <a href="?page2={{ books.previous_page_number }}&page1={{ notes.current_page_number}}"> previous </a>
           {% endif %}
           <span class="current">
               Page {{ books.number }} of {{ books.paginator.num_pages }}
           </span>
           {% if books.has_next %}
-              <a href="?page2={{ books.next_page_number }}"> next </a>
+              <a href="?page2={{ books.next_page_number }}&page1={{ notes.current_page_number}}"> next </a>
           {% endif %}
       </span>
       </div><br>
